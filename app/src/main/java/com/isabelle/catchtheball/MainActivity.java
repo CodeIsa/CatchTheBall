@@ -21,6 +21,7 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
+    
 
     //Frame
     private FrameLayout gameFrame;
@@ -111,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         if(!pink_flg && timeCount % 10000 == 0){
             pink_flg = true;
             pinkY = -20;
-            pinkY = (float) Math.floor(Math.random() * (frameWidth = pink.getWidth()));
+            pinkY = (float) Math.floor(Math.random() * (frameWidth - pink.getWidth()));
         }
 
         if(pink_flg){
@@ -184,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
             box.setImageDrawable(imageBoxRight);
         }
         if(frameWidth - boxSize < boxX){
-            boxX = frameWidth = boxSize;
+            boxX = frameWidth - boxSize;
             box.setImageDrawable(imageBoxLeft);
         }
 
@@ -265,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
             boxSize = box.getHeight();
             boxX = box.getX();
             boxY = box.getY();
-        }else{}
+        }
 
         frameWidth = initialFrameWidth;
 
